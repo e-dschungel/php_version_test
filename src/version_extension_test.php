@@ -3,7 +3,7 @@
 function create_version_extension_test_file($pvc_config, $filename){
     $test_code = '<?php
     $version = explode(\'.\', phpversion());
-    if (!is_empty($version)){
+    if (!empty($version)){
         echo $version[0] . \'.\' . $version[1];
     }
 ';
