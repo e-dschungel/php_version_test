@@ -17,7 +17,7 @@ Die gew&auml;hlte PHP Version ist auf dem Server nicht verf&uuml;gbar.</p>
     $filename = "phpx_test.phpx";
     create_version_test_file($pvc_config, $filename);
     $actual_output = get_version_test_output($pvc_config, $filename);
-    if (strip_whitespaces($actual_output) != $strip_whitespaces($expected_output)) {
+    if (strip_whitespaces($actual_output) != strip_whitespaces($expected_output)) {
         print "Output of PHPX tests differs from expectation:\n";
         print $actual_output;
     }
