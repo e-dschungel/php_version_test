@@ -1,9 +1,8 @@
 <?php
 
 $pvc_config = array(
-    "testdir" => "tests",
-    "base_path" => "~/php_version_checker",
-    "base_url" => "https://example.com",
+    "test_base_path" => "test",
+    "test_base_url" => "https://example.com",
     "version_extension_tests" => array(
       "php56" => "5.6",
       "php70" => "7.0",

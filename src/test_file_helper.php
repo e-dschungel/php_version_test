@@ -1,7 +1,7 @@
 <?php
 
 function create_test_file($pvc_config, $filename, $filecontent){
-    file_put_contents($pvc_config["testdir"] . "/" . $filename, $filecontent);
+    file_put_contents($pvc_config["test_base_path"] . "/" . $filename, $filecontent);
 }
 
 function get_version_test_code(){
@@ -28,6 +28,6 @@ function get_version_test_output($pvc_config, $filename){
         //return file_get_contents("" $pvc_config["testdir"] . "/" . $filename);
     }*/
     //else{
-        return file_get_contents($pvc_config["base_url"] . "/" . $pvc_config["testdir"] . "/" . $filename);
+        return file_get_contents($pvc_config["test_base_url"] . "/"  . $filename);
     //}
 }
