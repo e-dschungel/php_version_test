@@ -1,9 +1,19 @@
 <?php
 
+/**
+Removes all whitespaces
+@param $string
+
+@return $string without whitespaces
+*/
 function strip_whitespaces($string){
     return(preg_replace('/\s+/', '', $string));
 }
 
+/**
+Performs test for .phpx extension. Expected result server returns "PHP version not supported"
+@param $pvc_config config variable
+*/
 function perform_obsolete_phpx_test($pvc_config){
     $expected_output = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">
 <html><head>
@@ -24,7 +34,10 @@ Die gew&auml;hlte PHP Version ist auf dem Server nicht verf&uuml;gbar.</p>
     remove_test_file($pvc_config, $filename);
 }
 
-
+/**
+Performs test for .cgi-phpx extension. Expected result server returns code without executing it.
+@param $pvc_config config variable
+*/
 function perform_obsolete_cgi_php_test($pvc_config){
     $expected_output = get_version_test_code();
     $filename = "cgi-php_test.cgi-php";
@@ -37,7 +50,10 @@ function perform_obsolete_cgi_php_test($pvc_config){
     remove_test_file($pvc_config, $filename);
 }
 
-
+/**
+Performs all obsolete tests
+@param $pvc_config config variable
+*/
 function perform_obsolete_tests($pvc_config){
     perform_obsolete_phpx_test($pvc_config);
     perform_obsolete_cgi_php_test($pvc_config);

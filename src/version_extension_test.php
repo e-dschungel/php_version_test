@@ -1,5 +1,9 @@
 <?php
 
+/**
+Performs all version extension tests. Checks PHP version for different file extensions like ".php56"
+@param $pvc_config config variable
+*/
 function perform_version_extension_tests($pvc_config){
     foreach ($pvc_config["version_extension_tests"] as $extension => $expected_version){
         $testfilename = "extensiontest." . $extension;
