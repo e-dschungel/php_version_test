@@ -5,18 +5,6 @@ function strip_whitespaces($string){
 }
 
 function perform_obsolete_phpx_test($pvc_config){
-    $expected_output = get_version_test_code();
-    $filename = "phpx_test.phpx";
-    create_version_test_file($pvc_config, $filename);
-    $actual_output = get_version_test_output($pvc_config, $filename);
-    if ($strip_whitespaces($actual_output) != $strip_whitespaces($expected_output)) {
-        print "Output of PHPX tests differs from expectation:\n";
-        print $actual_output;
-    }
-}
-
-
-function perform_obsolete_cgi_php_test($pvc_config){
     $expected_output = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">
 <html><head>
 <title>PHP version not supported</title>
@@ -26,10 +14,22 @@ function perform_obsolete_cgi_php_test($pvc_config){
 ------------------------------------------------------------------------<br/>
 Die gew&auml;hlte PHP Version ist auf dem Server nicht verf&uuml;gbar.</p>
 </body></html>";
+    $filename = "phpx_test.phpx";
+    create_version_test_file($pvc_config, $filename);
+    $actual_output = get_version_test_output($pvc_config, $filename);
+    if (strip_whitespaces($actual_output) != $strip_whitespaces($expected_output)) {
+        print "Output of PHPX tests differs from expectation:\n";
+        print $actual_output;
+    }
+}
+
+
+function perform_obsolete_cgi_php_test($pvc_config){
+    $expected_output = get_version_test_code();
     $filename = "cgi-php_test.cgi-php";
     create_version_test_file($pvc_config, $filename);
     $actual_output = get_version_test_output($pvc_config, $filename);
-    if ($strip_whitespaces($actual_output) != $strip_whitespaces($expected_output)) {
+    if (strip_whitespaces($actual_output) != strip_whitespaces($expected_output)) {
         print "Output of CGI-PHP tests differs from expectation:\n";
         print $actual_output;
     }
