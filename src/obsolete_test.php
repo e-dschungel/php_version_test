@@ -21,6 +21,7 @@ Die gew&auml;hlte PHP Version ist auf dem Server nicht verf&uuml;gbar.</p>
         print "Output of PHPX tests differs from expectation:\n";
         print $actual_output;
     }
+    remove_test_file($pvc_config, $filename);
 }
 
 
@@ -33,6 +34,7 @@ function perform_obsolete_cgi_php_test($pvc_config){
         print "Output of CGI-PHP tests differs from expectation:\n";
         print $actual_output;
     }
+    remove_test_file($pvc_config, $filename);
 }
 
 

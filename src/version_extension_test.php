@@ -8,5 +8,6 @@ function perform_version_extension_tests($pvc_config){
         if ($actual_version != $expected_version){
             echo "Extension ." . $extension . " executes version " . $actual_version . " not the expenced version " . $expected_version . "!\n";
         }
+        remove_test_file($pvc_config, $testfilename);
     }
 }

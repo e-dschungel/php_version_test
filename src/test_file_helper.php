@@ -4,6 +4,10 @@ function create_test_file($pvc_config, $filename, $filecontent){
     file_put_contents($pvc_config["test_base_path"] . "/" . $filename, $filecontent);
 }
 
+function remove_test_file($pvc_config, $filename){
+    unlink($pvc_config["test_base_path"] . "/" . $filename);
+}
+
 function get_version_test_code(){
     $test_code = '<?php
     $version = explode(\'.\', phpversion());
