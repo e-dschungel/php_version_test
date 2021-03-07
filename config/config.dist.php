@@ -24,5 +24,5 @@ $pvc_config = array(
     "perform_version_extension_test" => true,
     "perform_handler_test" => true,
     "perform_obsolete_PHPX_test" => false,
-    "perform_obsolete_PHPCGI_test" => false,
+    "perform_obsolete_CGIPHP_test" => false,
 );
