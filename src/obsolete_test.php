@@ -2,19 +2,25 @@
 
 /**
 Removes all whitespaces
-@param $string
+
+@param $string string from which whitespaces should be remove
 
 @return $string without whitespaces
 */
-function strip_whitespaces($string){
+function stripWhitespaces($string)
+{
     return(preg_replace('/\s+/', '', $string));
 }
 
 /**
 Performs test for .phpx extension. Expected result server returns "PHP version not supported"
+
 @param $pvc_config config variable
+
+@return void
 */
-function perform_obsolete_phpx_test($pvc_config){
+function performObsoletePHPxTest($pvc_config)
+{
     $expected_output = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">
 <html><head>
 <title>PHP version not supported</title>
@@ -25,37 +31,44 @@ function perform_obsolete_phpx_test($pvc_config){
 Die gew&auml;hlte PHP Version ist auf dem Server nicht verf&uuml;gbar.</p>
 </body></html>";
     $filename = "phpx_test.phpx";
-    create_version_test_file($pvc_config, $filename);
-    $actual_output = get_version_test_output($pvc_config, $filename);
-    if (strip_whitespaces($actual_output) != strip_whitespaces($expected_output)) {
+    createVersionTestFile($pvc_config, $filename);
+    $actual_output = getVersionTestOutput($pvc_config, $filename);
+    if (stripWhitespaces($actual_output) != stripWhitespaces($expected_output)) {
         print "Output of PHPX tests differs from expectation:\n";
         print $actual_output;
     }
-    remove_test_file($pvc_config, $filename);
+    removeTestFile($pvc_config, $filename);
 }
 
 /**
 Performs test for .cgi-phpx extension. Expected result server returns code without executing it.
+
 @param $pvc_config config variable
+
+@return void
 */
-function perform_obsolete_cgi_php_test($pvc_config){
-    $expected_output = get_version_test_code();
+function performObsoleteCGIPHPTest($pvc_config)
+{
+    $expected_output = getVersionTestCode();
     $filename = "cgi-php_test.cgi-php";
-    create_version_test_file($pvc_config, $filename);
-    $actual_output = get_version_test_output($pvc_config, $filename);
-    if (strip_whitespaces($actual_output) != strip_whitespaces($expected_output)) {
+    createVersionTestFile($pvc_config, $filename);
+    $actual_output = getVersionTestOutput($pvc_config, $filename);
+    if (stripWhitespaces($actual_output) != stripWhitespaces($expected_output)) {
         print "Output of CGI-PHP tests differs from expectation:\n";
         print $actual_output;
     }
-    remove_test_file($pvc_config, $filename);
+    removeTestFile($pvc_config, $filename);
 }
 
 /**
 Performs all obsolete tests
-@param $pvc_config config variable
-*/
-function perform_obsolete_tests($pvc_config){
-    perform_obsolete_phpx_test($pvc_config);
-    perform_obsolete_cgi_php_test($pvc_config);
 
+@param $pvc_config config variable
+
+@return void
+*/
+function performObsoleteTests($pvc_config)
+{
+    performObsoletePHPxTest($pvc_config);
+    performObsoleteCGIPHPTest($pvc_config);
 }
