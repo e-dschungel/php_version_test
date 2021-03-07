@@ -58,7 +58,8 @@ function createVersionTestFile($pvc_config, $filename)
 }
 
 /**
-Return the output of a test
+Return the output of a test, using a HTTP request.
+Uses the same credentials as used for the test_php_version.php root file
 
 @param $pvc_config config variable
 @param $filename filename of the test
@@ -67,14 +68,16 @@ Return the output of a test
 */
 function getVersionTestOutput($pvc_config, $filename)
 {
-    //$user = $_SERVER['PHP_AUTH_USER'];
-    //$pass = $_SERVER['PHP_AUTH_PASS'];
+    $url = $pvc_config["test_base_url"] . "/"  . $filename;
+    $curl_handler = curl_init($url);
 
-    /*if (!is_empty($user) && !is_empty($pass)){
-        exit(1);
-        //return file_get_contents("" $pvc_config["testdir"] . "/" . $filename);
-    }*/
-    //else{
-        return file_get_contents($pvc_config["test_base_url"] . "/"  . $filename);
-    //}
+    curl_setopt($curl_handler, CURLOPT_RETURNTRANSFER, true);
+
+    if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PASS'])) {
+        curl_setopt($curl_handler, CURLOPT_USERPWD, $_SERVER['PHP_AUTH_USER'] . ":" . $_SERVER['PHP_AUTH_PASS']);
+    }
+    $output = curl_exec($curl_handler);
+    if ($output !== true) {
+        return $output;
+    }
 }
