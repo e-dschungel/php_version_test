@@ -19,7 +19,7 @@ Performs test for .phpx extension. Expected result server returns "PHP version n
 
 @return void
 */
-function performObsoletePHPxTest($pvc_config)
+function performObsoletePHPXTest($pvc_config)
 {
     $expected_output = "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">
 <html><head>
@@ -30,14 +30,16 @@ function performObsoletePHPxTest($pvc_config)
 ------------------------------------------------------------------------<br/>
 Die gew&auml;hlte PHP Version ist auf dem Server nicht verf&uuml;gbar.</p>
 </body></html>";
-    $filename = "phpx_test.phpx";
-    createVersionTestFile($pvc_config, $filename);
-    $actual_output = getVersionTestOutput($pvc_config, $filename);
-    if (stripWhitespaces($actual_output) != stripWhitespaces($expected_output)) {
-        print "Output of PHPX tests differs from expectation:\n";
-        print $actual_output;
+    if ($pvc_config["perform_obsolete_PHPX_test"]) {
+        $filename = "phpx_test.phpx";
+        createVersionTestFile($pvc_config, $filename);
+        $actual_output = getVersionTestOutput($pvc_config, $filename);
+        if (stripWhitespaces($actual_output) != stripWhitespaces($expected_output)) {
+            print "Output of PHPX tests differs from expectation:\n";
+            print $actual_output;
+        }
+        removeTestFile($pvc_config, $filename);
     }
-    removeTestFile($pvc_config, $filename);
 }
 
 /**
@@ -49,15 +51,17 @@ Performs test for .cgi-phpx extension. Expected result server returns code witho
 */
 function performObsoleteCGIPHPTest($pvc_config)
 {
-    $expected_output = getVersionTestCode();
-    $filename = "cgi-php_test.cgi-php";
-    createVersionTestFile($pvc_config, $filename);
-    $actual_output = getVersionTestOutput($pvc_config, $filename);
-    if (stripWhitespaces($actual_output) != stripWhitespaces($expected_output)) {
-        print "Output of CGI-PHP tests differs from expectation:\n";
-        print $actual_output;
+    if ($pvc_config["perform_obsolete_CGIPHP_test"]) {
+        $expected_output = getVersionTestCode();
+        $filename = "cgi-php_test.cgi-php";
+        createVersionTestFile($pvc_config, $filename);
+        $actual_output = getVersionTestOutput($pvc_config, $filename);
+        if (stripWhitespaces($actual_output) != stripWhitespaces($expected_output)) {
+            print "Output of CGI-PHP tests differs from expectation:\n";
+            print $actual_output;
+        }
+        removeTestFile($pvc_config, $filename);
     }
-    removeTestFile($pvc_config, $filename);
 }
 
 /**
@@ -69,6 +73,6 @@ Performs all obsolete tests
 */
 function performObsoleteTests($pvc_config)
 {
-    performObsoletePHPxTest($pvc_config);
+    performObsoletePHPXTest($pvc_config);
     performObsoleteCGIPHPTest($pvc_config);
 }

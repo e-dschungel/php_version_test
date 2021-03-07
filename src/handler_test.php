@@ -37,14 +37,16 @@ Performs all handler tests. Checks PHP version for different Add Handler setting
 */
 function performHandlerTests($pvc_config)
 {
-    foreach ($pvc_config["handler_tests"] as $handler => $expected_version) {
-        $testfilename = "handlertest.php";
-        createHandlerTestFiles($pvc_config, $handler);
-        $actual_version = getVersionTestOutput($pvc_config, $testfilename);
-        if ($actual_version != $expected_version) {
-            echo "Handler " . $handler . " executes version " . $actual_version .
-             " not the expenced version " . $expected_version . "!\n";
+    if ($pvc_config["perform_handler_test"]) {
+        foreach ($pvc_config["handler_tests"] as $handler => $expected_version) {
+            $testfilename = "handlertest.php";
+            createHandlerTestFiles($pvc_config, $handler);
+            $actual_version = getVersionTestOutput($pvc_config, $testfilename);
+            if ($actual_version != $expected_version) {
+                echo "Handler " . $handler . " executes version " . $actual_version .
+                 " not the expenced version " . $expected_version . "!\n";
+            }
+            removeHandlerTestFiles($pvc_config);
         }
-        removeHandlerTestFiles($pvc_config);
     }
 }
