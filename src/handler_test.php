@@ -25,7 +25,7 @@ Removes files for handler tests.
 function removeHandlerTestFiles($pvc_config)
 {
     removeTestFile($pvc_config, ".htaccess");
-    removeTestFile($pvc_config, "handler_test.php");
+    removeTestFile($pvc_config, "handlertest.php");
 }
 
 /**
