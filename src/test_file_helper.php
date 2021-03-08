@@ -73,10 +73,11 @@ function getVersionTestOutput($pvc_config, $filename)
 
     curl_setopt($curl_handler, CURLOPT_RETURNTRANSFER, true);
 
-    if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PASS'])) {
-        curl_setopt($curl_handler, CURLOPT_USERPWD, $_SERVER['PHP_AUTH_USER'] . ":" . $_SERVER['PHP_AUTH_PASS']);
+    if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
+        curl_setopt($curl_handler, CURLOPT_USERPWD, $_SERVER['PHP_AUTH_USER'] . ":" . $_SERVER['PHP_AUTH_PW']);
     }
     $output = curl_exec($curl_handler);
+    curl_close($curl_handler);
     if ($output !== true) {
         return $output;
     }
