@@ -37,8 +37,6 @@ abstract class AbstractTest
     */
     protected function createTestFile($filename, $filecontent)
     {
-        echo gettype($filename);
-
         file_put_contents($this->config["test_base_path"] . "/" . $filename, $filecontent);
     }
 
