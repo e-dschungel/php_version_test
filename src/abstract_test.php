@@ -22,7 +22,7 @@ abstract class AbstractTest
     /**
     Abstract method to start tests
 
-    @return void
+    @return nr of unexpected PHP versions found
     */
     abstract public function performAllTests();
 

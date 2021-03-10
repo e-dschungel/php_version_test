@@ -16,6 +16,12 @@ $test = array(
 );
 
 
+$nr_unexpected_versions = 0;
 foreach ($test as $test_instance) {
-    $test_instance->performAllTests();
+    $nr_unexpected_versions += $test_instance->performAllTests();
+}
+if ($nr_unexpected_versions === 0) {
+    print("No unexpected PHP version found.");
+} else {
+    print("Found " . $nr_unexpected_versions . " unexpected PHP versions!");
 }

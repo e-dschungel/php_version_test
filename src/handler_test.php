@@ -35,10 +35,11 @@ class HandlerTest extends abstractTest
     /**
     Performs all handler tests. Checks PHP version for different Add Handler settings in .htaccess file
 
-    @return void
+    @return nr of unpected PHP versions found
     */
     public function performAllTests()
     {
+        $nr_unexpected_versions = 0;
         if ($this->config["perform_handler_test"]) {
             foreach ($this->config["handler_tests"] as $handler => $expected_version) {
                 $testfilename = "handlertest.php";
@@ -46,11 +47,12 @@ class HandlerTest extends abstractTest
                 $actual_version = $this->getVersionTestOutput($testfilename);
                 if ($actual_version != $expected_version) {
                     echo "Handler " . $handler . " executes version " . $actual_version .
-
-                     " not the expenced version " . $expected_version . "!\n";
+                    " not the expenced version " . $expected_version . "!\n";
+                    $nr_unexpected_versions++;
                 }
                 $this->removeHandlerTestFiles();
             }
         }
+        return $nr_unexpected_versions;
     }
 }

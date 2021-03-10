@@ -22,7 +22,7 @@ class ObsoletePHPXTest extends abstractTest
     /**
     Performs test for .phpx extension. Expected result server returns "PHP version not supported"
 
-    @return void
+    @return nr of unexpected PHP versions found
     */
     public function performAllTests()
     {
@@ -35,6 +35,7 @@ class ObsoletePHPXTest extends abstractTest
     ------------------------------------------------------------------------<br/>
     Die gew&auml;hlte PHP Version ist auf dem Server nicht verf&uuml;gbar.</p>
     </body></html>";
+        $nr_unexpected_versions = 0;
         if ($this->config["perform_obsolete_PHPX_test"]) {
             $filename = "phpx_test.phpx";
             $this->createVersionTestFile($filename);
@@ -42,8 +43,10 @@ class ObsoletePHPXTest extends abstractTest
             if (stripWhitespaces($actual_output) != stripWhitespaces($expected_output)) {
                 print "Output of PHPX tests differs from expectation:\n";
                 print $actual_output;
+                $nr_unexpected_versions++;
             }
             $this->removeTestFile($filename);
         }
+        return $nr_unexpected_versions;
     }
 }
