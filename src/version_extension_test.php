@@ -28,5 +28,6 @@ class VersionExtensionTest extends abstractTest
                 $this->removeTestFile($testfilename);
             }
         }
+        return $nr_unexpected_versions;
     }
 }
