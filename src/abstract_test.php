@@ -19,6 +19,8 @@ abstract class AbstractTest
 
     /**
     Abstract method to start tests
+
+    @return void
     */
     abstract public function performAllTests();
 
