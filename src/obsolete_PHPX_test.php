@@ -1,5 +1,7 @@
 <?php
 
+namespace eDschungel;
+
 /**
 Removes all whitespaces
 

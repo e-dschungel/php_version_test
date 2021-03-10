@@ -1,5 +1,7 @@
 <?php
 
+namespace eDschungel;
+
 /**
 Performs version extension tests. Checks PHP version for different file extensions like ".php56"
 */

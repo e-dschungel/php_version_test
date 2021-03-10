@@ -9,10 +9,10 @@ require_once "src/handler_test.php";
 
 
 $test = array(
-    new VersionExtensionTest($pvc_config),
-    new HandlerTest($pvc_config),
-    new ObsoletePHPXTest($pvc_config),
-    new ObsoleteCGIPHPTest($pvc_config)
+    new eDschungel\VersionExtensionTest($pvc_config),
+    new eDschungel\HandlerTest($pvc_config),
+    new eDschungel\ObsoletePHPXTest($pvc_config),
+    new eDschungel\ObsoleteCGIPHPTest($pvc_config)
 );
 
 

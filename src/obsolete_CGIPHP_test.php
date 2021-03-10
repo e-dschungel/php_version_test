@@ -1,5 +1,7 @@
 <?php
 
+namespace eDschungel;
+
 /**
 Performs test for .cgi-php extension.
 */

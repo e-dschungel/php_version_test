@@ -1,5 +1,7 @@
 <?php
 
+namespace eDschungel;
+
 /**
 Abstract class to implement tests for PHP versions.
 */

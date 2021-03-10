@@ -1,5 +1,7 @@
 <?php
 
+namespace eDschungel;
+
 /**
 Performs all handler tests. Checks PHP version for different Add Handler settings in .htaccess file
 */
