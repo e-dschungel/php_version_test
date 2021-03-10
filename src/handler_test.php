@@ -1,52 +1,54 @@
 <?php
 
 /**
-Creates files for handler tests.
-
-@param $pvc_config config variable
-@param $handler name of the handler, e.g. "php72-cgi"
-
-@return void
+Performs all handler tests. Checks PHP version for different Add Handler settings in .htaccess file
 */
-function createHandlerTestFiles($pvc_config, $handler)
+class HandlerTest extends abstractTest
 {
-    $htaccess_test_code = "AddHandler " . $handler . " .php";
-    createTestFile($pvc_config, ".htaccess", $htaccess_test_code);
-    createVersionTestFile($pvc_config, "handlertest.php");
-}
+    /**
+    Creates files for handler tests.
 
-/**
-Removes files for handler tests.
+    @param $handler name of the handler, e.g. "php72-cgi"
 
-@param $pvc_config config variable
+    @return void
+    */
+    private function createHandlerTestFiles($handler)
+    {
+        $htaccess_test_code = "AddHandler " . $handler . " .php";
+        $this->createTestFile(".htaccess", $htaccess_test_code);
+        $this->createVersionTestFile("handlertest.php");
+    }
 
-@return void
-*/
-function removeHandlerTestFiles($pvc_config)
-{
-    removeTestFile($pvc_config, ".htaccess");
-    removeTestFile($pvc_config, "handlertest.php");
-}
+    /**
+    Removes files for handler tests.
 
-/**
-Performs all handler tests. Checks PHP version for different Add Handler settings
+    @return void
+    */
+    private function removeHandlerTestFiles()
+    {
+        $this->removeTestFile(".htaccess");
+        $this->removeTestFile("handlertest.php");
+    }
 
-@param $pvc_config config variable
+    /**
+    Performs all handler tests. Checks PHP version for different Add Handler settings in .htaccess file
 
-@return void
-*/
-function performHandlerTests($pvc_config)
-{
-    if ($pvc_config["perform_handler_test"]) {
-        foreach ($pvc_config["handler_tests"] as $handler => $expected_version) {
-            $testfilename = "handlertest.php";
-            createHandlerTestFiles($pvc_config, $handler);
-            $actual_version = getVersionTestOutput($pvc_config, $testfilename);
-            if ($actual_version != $expected_version) {
-                echo "Handler " . $handler . " executes version " . $actual_version .
-                 " not the expenced version " . $expected_version . "!\n";
+    @return void
+    */
+    public function performAllTests()
+    {
+        if ($this->config["perform_handler_test"]) {
+            foreach ($this->config["handler_tests"] as $handler => $expected_version) {
+                $testfilename = "handlertest.php";
+                $this->createHandlerTestFiles($handler);
+                $actual_version = $this->getVersionTestOutput($testfilename);
+                if ($actual_version != $expected_version) {
+                    echo "Handler " . $handler . " executes version " . $actual_version .
+
+                     " not the expenced version " . $expected_version . "!\n";
+                }
+                $this->removeHandlerTestFiles();
             }
-            removeHandlerTestFiles($pvc_config);
         }
     }
 }
