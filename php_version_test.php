@@ -15,13 +15,13 @@ $test = array(
     new eDschungel\ObsoleteCGIPHPTest($pvc_config)
 );
 
-
+header("Content-Type: text/plain");
 $nr_unexpected_versions = 0;
 foreach ($test as $test_instance) {
     $nr_unexpected_versions += $test_instance->performAllTests();
 }
 if ($nr_unexpected_versions === 0) {
-    print("No unexpected PHP version found.");
+    print("No unexpected PHP version found.\n");
 } else {
-    print("Found " . $nr_unexpected_versions . " unexpected PHP versions!");
+    print("Found " . $nr_unexpected_versions . " unexpected PHP versions!\n");
 }
