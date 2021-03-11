@@ -3,18 +3,6 @@
 namespace eDschungel;
 
 /**
-Removes all whitespaces
-
-@param $string string from which whitespaces should be remove
-
-@return $string without whitespaces
-*/
-function stripWhitespaces($string)
-{
-    return(preg_replace('/\s+/', '', $string));
-}
-
-/**
 Performs test for .phpx extension.
 */
 class ObsoletePHPXTest extends abstractTest
@@ -40,7 +28,7 @@ class ObsoletePHPXTest extends abstractTest
             $filename = "phpx_test.phpx";
             $this->createVersionTestFile($filename);
             $actual_output = $this->getVersionTestOutput($filename);
-            if (stripWhitespaces($actual_output) != stripWhitespaces($expected_output)) {
+            if ($this->stripWhitespaces($actual_output) != $this->stripWhitespaces($expected_output)) {
                 print "Output of PHPX tests differs from expectation:\n";
                 print $actual_output;
                 $nr_unexpected_versions++;

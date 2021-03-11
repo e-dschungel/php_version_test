@@ -105,4 +105,17 @@ abstract class AbstractTest
             return $output;
         }
     }
+
+    /**
+    Removes all whitespaces
+
+    @param $string string from which whitespaces should be remove
+
+    @return $string without whitespaces
+    */
+    protected function stripWhitespaces($string)
+    {
+        return(preg_replace('/\s+/', '', $string));
+    }
+
 }

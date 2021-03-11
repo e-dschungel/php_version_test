@@ -20,7 +20,7 @@ class ObsoleteCGIPHPTest extends abstractTest
             $filename = "cgi-php_test.cgi-php";
             $this->createVersionTestFile($filename);
             $actual_output = $this->getVersionTestOutput($filename);
-            if (stripWhitespaces($actual_output) != stripWhitespaces($expected_output)) {
+            if ($this->stripWhitespaces($actual_output) != $this->stripWhitespaces($expected_output)) {
                 print "Output of CGI-PHP tests differs from expectation:\n";
                 print $actual_output;
                 $nr_unexpected_versions++;
