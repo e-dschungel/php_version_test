@@ -46,8 +46,13 @@ class HandlerTest extends abstractTest
                 $this->createHandlerTestFiles($handler);
                 $actual_version = $this->getVersionTestOutput($testfilename);
                 if ($actual_version != $expected_version) {
-                    echo "Handler " . $handler . " executes version " . $actual_version .
-                    " not the expenced version " . $expected_version . "!\n";
+                    if ($this->isPHPVersion($actual_version)) {
+                        echo "Handler " . $extension . " executes version " . $actual_version .
+                        " not the expected version " . $expected_version . "!\n";
+                    } else {
+                        echo "Output of handler test for version " . $expected_version . " is:\n";
+                        echo $actual_version . "\n";
+                    }
                     $nr_unexpected_versions++;
                 }
                 $this->removeHandlerTestFiles();

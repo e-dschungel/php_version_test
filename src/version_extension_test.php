@@ -21,8 +21,13 @@ class VersionExtensionTest extends abstractTest
                 $this->createVersionTestFile($testfilename);
                 $actual_version = $this->getVersionTestOutput($testfilename);
                 if ($actual_version != $expected_version) {
-                    echo "Extension ." . $extension . " executes version " . $actual_version .
-                    " not the expenced version " . $expected_version . "!\n";
+                    if ($this->isPHPVersion($actual_version)) {
+                        echo "Extension ." . $extension . " executes version " . $actual_version .
+                        " not the expected version " . $expected_version . "!\n";
+                    } else {
+                        echo "Output of version extension test for extension ." . $extension . " is:\n";
+                        echo $actual_version . "\n";
+                    }
                     $nr_unexpected_versions++;
                 }
                 $this->removeTestFile($testfilename);

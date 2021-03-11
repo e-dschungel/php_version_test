@@ -118,4 +118,19 @@ abstract class AbstractTest
         return(preg_replace('/\s+/', '', $string));
     }
 
+     /**
+    Checks if given string is a PHP version like 5.6
+
+    @param $string string to check
+
+    @return true or false
+    */
+    protected function isPHPVersion($string)
+    {
+        return (is_string($string) &&
+            strlen($string) == 0 &&
+            is_numeric($string [0]) &&
+            $string [1] == "." &&
+            is_numeric($string [0]));
+    }
 }

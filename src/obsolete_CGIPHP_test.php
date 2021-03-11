@@ -21,8 +21,12 @@ class ObsoleteCGIPHPTest extends abstractTest
             $this->createVersionTestFile($filename);
             $actual_output = $this->getVersionTestOutput($filename);
             if ($this->stripWhitespaces($actual_output) != $this->stripWhitespaces($expected_output)) {
-                print "Output of CGI-PHP tests differs from expectation:\n";
-                print $actual_output;
+                if ($this->isPHPVersion($actual_output)) {
+                    echo "Extension .cgi-php executes version " . $actual_output . "!\n";
+                } else {
+                    echo "Output of .cgi-php extension test is:\n";
+                    echo $actual_output . "\n";
+                }
                 $nr_unexpected_versions++;
             }
             $this->removeTestFile($filename);
