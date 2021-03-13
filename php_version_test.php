@@ -1,11 +1,11 @@
 <?php
 
 require_once "config/config.php";
-require_once "src/abstract_test.php";
-require_once "src/version_extension_test.php";
-require_once "src/obsolete_CGIPHP_test.php";
-require_once "src/obsolete_PHPX_test.php";
-require_once "src/handler_test.php";
+require_once "src/AbstractTest.php";
+require_once "src/VersionExtensionTest.php";
+require_once "src/ObsoleteCGIPHPTest.php";
+require_once "src/ObsoletePHPXTest.php";
+require_once "src/HandlerTest.php";
 
 
 $test = array(
