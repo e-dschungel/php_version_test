@@ -1,20 +1,20 @@
 # PHP_version_test
 PHP_version_test is a script to test different methods the configure the PHP version to be executed.
 
-##Handler Test
+## Handler Test
 Checks PHP version for different Add Handler settings in .htaccess file.
 Example: AddHandler php80-cgi .php in .htaccess executes PHP 8.0
 
-##Version Extension Test
+## Version Extension Test
 Checks PHP version for different file extensions.
 Example ".php56" executes PHP 5.6
 
-##Obsolete PHPX Test
+## Obsolete PHPX Test
 Special test for hoster all-inkl.com.
 The extension used to execute PHP as Apache module.
 Nowadays it returns an error message for which the tests checks.
 
-##Obsolete CGIPHP Test
+## Obsolete CGIPHP Test
 Special test for hoster all-inkl.com.
 The extension ".cgi-php" used to execute PHP as CGI module.
 Nowadays it returns the code without executing it.
@@ -33,7 +33,7 @@ Nowadays it returns the code without executing it.
 |---|---|
 $pvc_config["test_base_path"] | path of the "tests" directory|
 $pvc_config["test_base_url"] | path of the "tests" directory|
-$pvc_config["version_extension_tests"]|| Array of file extension and the expected PHP version for version extension test|
+$pvc_config["version_extension_tests"]| Array of file extension and the expected PHP version for version extension test|
 $pvc_config["handler_tests"]| Array of handlers in .htaccess and the expected PHP version|
 $pvc_config["perform_version_extension_test"]| run version extension test true/false|
 $pvc_config["perform_handler_test"| run handler test true/false|
