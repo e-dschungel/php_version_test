@@ -4,7 +4,7 @@ namespace eDschungel;
 
 /**
 Performs all new handler tests.
-Checks for different Add Handler settings in .htaccess file and expects that this PHP version is not executed
+Checks for different Add Handler settings in .htaccess file and expects that files using this setting are not executed but return their code
 */
 class NewHandlerTest extends HandlerTest
 {
@@ -12,7 +12,8 @@ class NewHandlerTest extends HandlerTest
 
     /**
     Performs all new handler tests.
-    Checks for different Add Handler settings in .htaccess file
+    Checks for different Add Handler settings in .htaccess file and expects that files
+    using this setting are not executed but return their code
 
     @return nr of unexpected PHP versions found
     */
