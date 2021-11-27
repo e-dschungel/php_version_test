@@ -29,7 +29,7 @@ Nowadays it returns the code without executing it.
 
 
 ## Requirements
-* PHP > 5.6 with curl extension installed
+* PHP >= 5.6 with curl extension installed
 * ''tests'' dir must be writable
 
 ## Installation
