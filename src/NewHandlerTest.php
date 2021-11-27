@@ -4,7 +4,8 @@ namespace eDschungel;
 
 /**
 Performs all new handler tests.
-Checks for different Add Handler settings in .htaccess file and expects that files using this setting are not executed but return their code
+Checks for different Add Handler settings in .htaccess file and expects that files
+using this setting are not executed but return their code
 */
 class NewHandlerTest extends HandlerTest
 {

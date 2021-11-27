@@ -4,13 +4,15 @@ namespace eDschungel;
 
 /**
 Performs version extension tests.
-Checks for different version extensions and expects that this files with these extensions are not executed but return their code
+Checks for different version extensions and expects that this files with these extensions
+are not executed but return their code
 */
 class NewVersionExtensionTest extends abstractTest
 {
     /**
     Performs all new version extension tests.
-    Checks for different version extensions and expects that this files with these extensions are not executed but return their code
+    Checks for different version extensions and expects that this files with these extensions
+    are not executed but return their code
 
     @return nr of unexpected PHP versions
     */
