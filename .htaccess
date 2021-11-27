@@ -3,5 +3,7 @@ RewriteEngine On
 # deny access to some locations
 RewriteRule ^/?(\.git|config|src|vendor) - [F]
 RewriteRule /?check_codingstyle\.sh$ - [F]
+RewriteRule /?create_zip_release\.py$ - [F]
+RewriteRule /?php_version_test\.zip$ - [F]
 RewriteRule /?(README\.md|composer\.json|composer\.lock|mypear\.xml|phpdoc\.dist\.xml)$ - [F]
 RewriteRule ^/?log/.*$ - [F,L]
