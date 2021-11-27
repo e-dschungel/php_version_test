@@ -1,5 +1,6 @@
 # PHP_version_test
 PHP_version_test is a script to test different methods the configure the PHP version to be executed.
+The tests are executed by calling php_version_test.php, the configuration is done in config/config.php.
 
 ## Handler Test
 Checks PHP version for different Add Handler settings in .htaccess file.
