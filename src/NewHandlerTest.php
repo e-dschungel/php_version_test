@@ -22,7 +22,7 @@ class NewHandlerTest extends HandlerTest
         if ($this->config["perform_new_handler_test"]) {
             $expected_output = $this->getVersionTestCode();
             foreach ($this->config["new_handler_tests"] as $handler) {
-                $testfilename = "newhandlertest.php";
+                $testfilename = "handlertest.php";
                 $this->createHandlerTestFiles($handler);
                 $actual_output = $this->getVersionTestOutput($testfilename);
                 if ($this->stripWhitespaces($actual_output) != $this->stripWhitespaces($expected_output)) {
