@@ -21,8 +21,16 @@ $pvc_config = array(
       "php74-cgi" => "7.4",
       "php80-cgi" => "8.0",
     ),
+    "new_handler_tests" => array(
+      "php82-cgi",
+    ),
+    "new_version_extension_tests" => array(
+      "php82",
+    ),
     "perform_version_extension_test" => true,
     "perform_handler_test" => true,
+    "perform_new_version_extension_test" => true,
+    "perform_new_handler_test" => true,
     "perform_obsolete_PHPX_test" => false,
     "perform_obsolete_CGIPHP_test" => false,
 );

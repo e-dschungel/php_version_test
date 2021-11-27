@@ -6,13 +6,16 @@ require_once "src/VersionExtensionTest.php";
 require_once "src/ObsoleteCGIPHPTest.php";
 require_once "src/ObsoletePHPXTest.php";
 require_once "src/HandlerTest.php";
-
+require_once "src/NewHandlerTest.php";
+require_once "src/NewVersionExtensionTest.php";
 
 $test = array(
     new eDschungel\VersionExtensionTest($pvc_config),
     new eDschungel\HandlerTest($pvc_config),
     new eDschungel\ObsoletePHPXTest($pvc_config),
-    new eDschungel\ObsoleteCGIPHPTest($pvc_config)
+    new eDschungel\ObsoleteCGIPHPTest($pvc_config),
+    new eDschungel\NewVersionExtensionTest($pvc_config),
+    new eDschungel\NewHandlerTest($pvc_config),
 );
 
 header("Content-Type: text/plain");

@@ -14,7 +14,7 @@ class HandlerTest extends abstractTest
 
     @return void
     */
-    private function createHandlerTestFiles($handler)
+    protected function createHandlerTestFiles($handler)
     {
         $htaccess_test_code = "AddHandler " . $handler . " .php";
         $this->createTestFile(".htaccess", $htaccess_test_code);
@@ -26,7 +26,7 @@ class HandlerTest extends abstractTest
 
     @return void
     */
-    private function removeHandlerTestFiles()
+    protected function removeHandlerTestFiles()
     {
         $this->removeTestFile(".htaccess");
         $this->removeTestFile("handlertest.php");
