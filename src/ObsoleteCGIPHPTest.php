@@ -5,7 +5,7 @@ namespace eDschungel;
 /**
 Performs test for .cgi-php extension.
 */
-class ObsoleteCGIPHPTest extends abstractTest
+class ObsoleteCGIPHPTest extends AbstractTest
 {
     /**
     Performs test for .cgi-php extension. Expected result server returns code without executing it.

@@ -9,8 +9,6 @@ using this setting are not executed but return their code
 */
 class NewHandlerTest extends HandlerTest
 {
-
-
     /**
     Performs all new handler tests.
     Checks for different Add Handler settings in .htaccess file and expects that files
@@ -29,7 +27,7 @@ class NewHandlerTest extends HandlerTest
                 $actual_output = $this->getVersionTestOutput($testfilename);
                 if ($this->stripWhitespaces($actual_output) != $this->stripWhitespaces($expected_output)) {
                     if ($this->isPHPVersion($actual_output)) {
-                        echo "Handler " . $handler . " executes version " . $actual_version . "!\n";
+                        echo "Handler " . $handler . " executes version " . $actual_output . "!\n";
                     } else {
                         echo "Output of new handler test for handler " . $handler . " is:\n";
                         echo $actual_output . "\n";

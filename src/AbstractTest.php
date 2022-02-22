@@ -104,6 +104,7 @@ abstract class AbstractTest
         if ($output !== true) {
             return $output;
         }
+        return "";
     }
 
     /**

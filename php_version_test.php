@@ -9,6 +9,10 @@ require_once "src/HandlerTest.php";
 require_once "src/NewHandlerTest.php";
 require_once "src/NewVersionExtensionTest.php";
 
+if (!isset($pvc_config)) {
+    throw new Exception('$pvc_config not set');
+}
+
 $test = array(
     new eDschungel\VersionExtensionTest($pvc_config),
     new eDschungel\HandlerTest($pvc_config),

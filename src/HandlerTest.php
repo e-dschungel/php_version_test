@@ -5,7 +5,7 @@ namespace eDschungel;
 /**
 Performs all handler tests. Checks PHP version for different Add Handler settings in .htaccess file
 */
-class HandlerTest extends abstractTest
+class HandlerTest extends AbstractTest
 {
     /**
     Creates files for handler tests.

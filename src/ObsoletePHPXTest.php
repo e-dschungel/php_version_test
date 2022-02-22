@@ -5,7 +5,7 @@ namespace eDschungel;
 /**
 Performs test for .phpx extension.
 */
-class ObsoletePHPXTest extends abstractTest
+class ObsoletePHPXTest extends AbstractTest
 {
     /**
     Performs test for .phpx extension. Expected result server returns "PHP version not supported"
