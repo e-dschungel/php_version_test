@@ -57,3 +57,7 @@ $pvc_config["perform_obsolete_CGIPHP_test"|run obsolete CGIPHP test (only useful
 
 ### Version 0.2
 * added new handler and new version extension test
+
+### Version 0.2.1
+* use PHPStan
+* fixed errors found by PHPStan
