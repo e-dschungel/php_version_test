@@ -8,5 +8,10 @@
         "phpcompatibility/php-compatibility": "*",
         "squizlabs/php_codesniffer": "*",
         "phpstan/phpstan": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }
