@@ -33,6 +33,12 @@ Special test for hoster all-inkl.com.
 Some version extensions like "*.phpx" or "*.php71" used to execute PHP as Apache module or in a specific version.
 Nowadays they return an error message for which this tests checks.
 
+## Obsolete Handler Test
+Special test for hoster all-inkl.com.
+Some Add Handler settings in .htaccess file used to execute PHP in a specific version.
+Nowadays they return an error message for which this tests checks.
+
+
 ## Requirements
 * PHP >= 5.6 with curl extension installed
 * ''tests'' dir must be writable
@@ -49,6 +55,7 @@ $pvc_config["test_base_url"] | path of the "tests" directory|
 $pvc_config["version_extension_tests"]| Array of file extension and the expected PHP version for version extension test|
 $pvc_config["obsolete_version_extension_tests"]| Array of file extension for obsolete version extension test|
 $pvc_config["handler_tests"]| Array of handlers in .htaccess and the expected PHP version|
+$pvc_config["obsolete_handler_tests"]| Array of handlers in .htaccess for obsolete handler test|
 $pvc_config["perform_version_extension_test"]| run version extension test true/false|
 $pvc_config["perform_handler_test"| run handler test true/false|
 $pvc_config["perform_new_version_extension_test"]| run new version extension test true/false|
@@ -56,6 +63,7 @@ $pvc_config["perform_new_handler_test"| run new handler test true/false|
 $pvc_config["perform_obsolete_PHPX_test"| run obsolete PHPX test (only useful for all-inkl.com, obsolete use obsolete_version_extension_tests instead) true/false|
 $pvc_config["perform_obsolete_version_extension_tests"| run obsolete version extension tests (only useful for all-inkl.com) true/false|
 $pvc_config["perform_obsolete_CGIPHP_test"|run obsolete CGIPHP test (only useful for all-inkl.com) true/false|
+$pvc_config["perform_obsolete_handler_test"| run obsolete handler test (only useful for all-inkl.com) true/false|
 
 ## Changelog
 ### Version 0.1

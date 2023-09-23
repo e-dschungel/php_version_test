@@ -16,13 +16,15 @@ $pvc_config = array(
       "phpx"
     ),
     "handler_tests" => array(
-      "php56-cgi" => "5.6",
       "php70-cgi" => "7.0",
       "php71-cgi" => "7.1",
       "php72-cgi" => "7.2",
       "php73-cgi" => "7.3",
       "php74-cgi" => "7.4",
       "php80-cgi" => "8.0",
+    ),
+    "obsolete_handler_tests" => array(
+      "php56-cgi",
     ),
     "new_handler_tests" => array(
       "php82-cgi",
@@ -37,4 +39,5 @@ $pvc_config = array(
     "perform_obsolete_PHPX_test" => false,
     "perform_obsolete_CGIPHP_test" => false,
     "perform_obsolete_version_extension_test" => false,
+    "perform_obsolete_handler_test" => false,
 );
