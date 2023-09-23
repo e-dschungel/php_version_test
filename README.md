@@ -78,4 +78,5 @@ $pvc_config["perform_obsolete_handler_test"| run obsolete handler test (only use
 
 ### Version 0.2.2
 * added new ObsoleteVersionExtensionTest
-* ObsoletePHPXTest is obsolete and will be removed in future version, use ObsoleteVersionExtensionTest instead
+* added new ObsoleteHandlerTest
+* ObsoletePHPXTest is obsolete and will be removed in a future version, use ObsoleteVersionExtensionTest instead
