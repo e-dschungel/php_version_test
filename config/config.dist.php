@@ -4,13 +4,16 @@ $pvc_config = array(
     "test_base_path" => "tests",
     "test_base_url" => "https://example.com",
     "version_extension_tests" => array(
-      "php56" => "5.6",
       "php70" => "7.0",
       "php71" => "7.1",
       "php72" => "7.2",
       "php73" => "7.3",
       "php74" => "7.4",
       "php80" => "8.0",
+    ),
+    "obsolete_version_extension_tests" => array(
+      "php56",
+      "phpx"
     ),
     "handler_tests" => array(
       "php56-cgi" => "5.6",
@@ -33,4 +36,5 @@ $pvc_config = array(
     "perform_new_handler_test" => true,
     "perform_obsolete_PHPX_test" => false,
     "perform_obsolete_CGIPHP_test" => false,
+    "perform_obsolete_version_extension_test" => false,
 );
