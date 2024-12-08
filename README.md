@@ -80,3 +80,8 @@ $pvc_config["perform_obsolete_handler_test"| run obsolete handler test (only use
 * added new ObsoleteVersionExtensionTest
 * added new ObsoleteHandlerTest
 * ObsoletePHPXTest is obsolete and will be removed in a future version, use ObsoleteVersionExtensionTest instead
+
+### Version 0.2.3
+* updated dev dependencies
+* updated config.php.dist
+* fixed isPHPVersion
