@@ -1,3 +1,5 @@
 config/config.php
 .phpdoc
 php_version_test.zip
+tools/
+.phive/
