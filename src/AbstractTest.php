@@ -129,9 +129,9 @@ abstract class AbstractTest
     protected function isPHPVersion($string)
     {
         return (is_string($string) &&
-            strlen($string) == 0 &&
+            strlen($string) == 3 &&
             is_numeric($string [0]) &&
             $string [1] == "." &&
-            is_numeric($string [0]));
+            is_numeric($string [2]));
     }
 }
